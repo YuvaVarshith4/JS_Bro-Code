@@ -13,9 +13,9 @@ arrow functions = a concise way to write function expressions
 // hello("Bro",20);
 
 //final
-const hello = (name,age) => {console.log("Hello ${name}"),
+const hello = (name,age) => {console.log(`Hello ${name}`),
                              console.log(`You're ${age} years old`)};
-hello("Bro");
+hello("Bro",25);
 
 
 
