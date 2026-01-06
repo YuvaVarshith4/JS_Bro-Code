@@ -274,5 +274,131 @@ Ape.move(45);
 
 
 
+/*
+getter = special method that makes a property readable
+setter = special methos that makes a property writeable
+
+validate and modify a value when reading/writing a property
+*/
+
+// example 01
+
+class Rectangle{
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    set width(newWidth){
+        if(newWidth > 0){
+            this._width = newWidth;  //_width is private property, it must not be touched
+        }
+        else{
+            console.error("Width must be a positive number")
+        }
+    }
+
+    set height(newheight){
+        if(newheight > 0){
+            this._height = newheight;
+        }
+        else{
+            console.error("Height must be a positive number")
+        }
+    }
+
+    get width(){
+        return this._width;
+    }
+
+    get height(){
+        return this._height;
+    }
+
+    get area(){
+        return this._width * this._height;
+    }
+}
+
+// const rectangle = new Rectangle(-1000000, "Burger");
+// console.log(rectangle.width);
+
+const rectangle = new Rectangle(4,6);
+
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);  // You can additional logic using getters
+
+rectangle.width = 5;
+rectangle.height = 7;
+
+
+//example 02
+
+class Person{
+    constructor(firstname, lastname, age){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+    }
+
+    set firstname(newfirstname){
+        if(typeof newfirstname === "string" && newfirstname > 0){
+            this._firstname = newfirstname;
+        }
+
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastname(newlastname){
+        if(typeof newlastname === "string" && newlastname > 0){
+            this._lastname = newlastname;
+        }
+
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0){
+            this._age = newAge;
+        }
+
+        else{
+            console.error("Age must be a non-negative number");
+        }
+    }
+
+    get firstname(){
+        return this._firstname;
+    }
+    get firstname(){
+        return this._lastname;
+    }
+    get fullname(){
+        return this._firstname + " " + this._lastname;
+    }
+    get age(){
+        return this._age;
+    }
+}
+
+// const person = new Person(420, 69, "pizza");
+
+// console.log(person.firstname);
+// console.log(person.lastname);
+// console.log(person.age);
+
+
+const person = new Person("Spongebob", "Squarepants", 30);
+console.log(person.firstname);
+console.log(person.lastname);
+console.log(person.fullname);
+console.log(person.age);
+
+
 
 
